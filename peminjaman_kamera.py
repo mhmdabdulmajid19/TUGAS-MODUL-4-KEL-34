@@ -31,3 +31,29 @@ def hargaKamera(opsi):
         5: 160000,
     }
     return switcher.get(opsi, 0)
+    
+def peminjamanKamera():
+    total_harga = 0
+    while True:
+        listKamera()
+        opsi = int(input("Pilih kamera yang ingin dipinjam (masukkan nomor): "))
+        if opsi == 0:
+            break
+        print("Anda telah memilih kamera:", opsiKamera(opsi))
+        hari = int(input("Berapa hari Anda ingin meminjam kamera ini? "))
+        harga_per_hari = hargaKamera(opsi)
+        total_harga += harga_per_hari * hari
+        lanjut = input("Apakah Anda ingin meminjam kamera lain? (ya/tidak): ")
+        if lanjut.lower() != "ya":
+            break
+    return total_harga
+
+
+panggil = Metode(None)
+
+total_harga_peminjaman = peminjamanKamera()
+print("Total harga peminjaman kamera: Rp.", total_harga_peminjaman)
+
+panggil.trims()
+
+input("Tekan ENTER untuk keluar dari program")
